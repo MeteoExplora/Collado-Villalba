@@ -181,10 +181,33 @@
       </p>
     </div>
 
-    <h2 class="section-title" id="radar">Radar de precipitación (Meteociel)</h2>
-    <div class="card" style="overflow: hidden; position: relative; height: 520px; padding: 0;">
-      <iframe src="https://www.meteociel.fr/observations-meteo/radar2.php?region=sp" style="position: absolute; top: -185px; left: -175px; width: calc(100% + 185px); height: 730px; border: none;" scrolling="no"></iframe>
+        <h2 class="section-title" id="radar">Radar de precipitación (Meteociel)</h2>
+    <div class="card" id="radar-container" style="overflow: hidden; position: relative; padding: 0; width: 100%;">
+      <iframe id="radar-frame" src="https://www.meteociel.fr/observations-meteo/radar2.php?region=sp" style="position: absolute; top: -185px; left: -175px; width: 880px; height: 820px; border: none; transform-origin: 175px 185px;" scrolling="no"></iframe>
     </div>
+
+    <script>
+      function ajustarRadar() {
+        const contenedor = document.getElementById("radar-container");
+        const iframe = document.getElementById("radar-frame");
+        if (!contenedor || !iframe) return;
+
+        // Ancho real del recuadro del radar en Meteociel
+        const anchoRadar = 705;
+        const altoRadar = 610;
+
+        // Calcula la escala según el tamaño de la pantalla actual
+        const anchoDisponible = contenedor.clientWidth;
+        const escala = Math.min(1, anchoDisponible / anchoRadar);
+
+        iframe.style.transform = `scale(${escala})`;
+        contenedor.style.height = (altoRadar * escala) + "px";
+      }
+
+      window.addEventListener("load", ajustarRadar);
+      window.addEventListener("resize", ajustarRadar);
+    </script>
+
 
 
 
