@@ -169,10 +169,24 @@
       </div>
     </div>
 
-    <h2 class="section-title" id="radar">Radar de precipitación (Sierra de Guadarrama)</h2>
-    <div class="card">
-      <iframe height="420" src="https://www.windy.com/40.640/-3.999?radar,40.373,-3.999,9,p:cities"></iframe>
+  
+   /* RADAR METEOCIEL */
+  <h2 class="section-title" id="radar">Radar de precipitación (Meteociel • España)</h2>
+    <div class="card" style="text-align: center;">
+      <a href="https://www.meteociel.fr/observations-meteo/radar2.php?region=sp" target="_blank" title="Abrir radar interactivo en Meteociel">
+        <img src="https://meteociel.fr" alt="Radar de precipitación España Meteociel" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #334155;">
+      </a>
+      <p class="card-sub" style="margin-top: 10px;">
+        Animación radar en tiempo real • Pulsa sobre el mapa para abrir el visor con zoom en Meteociel
+      </p>
     </div>
+
+    <h2 class="section-title" id="radar">Radar de precipitación (Meteociel)</h2>
+    <div class="card" style="overflow: hidden; position: relative; height: 520px; padding: 0;">
+      <iframe src="https://www.meteociel.fr/observations-meteo/radar2.php?region=sp" style="position: absolute; top: -185px; left: -175px; width: calc(100% + 185px); height: 730px; border: none;" scrolling="no"></iframe>
+    </div>
+
+
 
     <h2 class="section-title" id="prevision">Previsión AEMET • Collado Villalba</h2>
     <div class="card" style="overflow-x: auto; margin-bottom: 20px; background: #ffffff;">
