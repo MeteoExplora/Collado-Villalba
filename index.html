@@ -49,29 +49,168 @@
     }
     nav .links a:hover { color: var(--accent); }
 
-    /* Contenedor principal */
-    .container { max-width: 1100px; margin: 0 auto; padding: 25px 20px; }
 
-    /* Cabecera */
-    .hero {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 25px;
-    }
-    .hero h1 { font-size: 1.8rem; margin-bottom: 5px; }
-    .hero p { color: var(--muted); font-size: 0.95rem; }
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-top: 10px;
-    }
+
+   
+/* CONTENEDOR PRINCIPAL CENTRADO */
+.container {
+  width: calc(100% - 40px);
+  max-width: 1400px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 35px;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    145deg,
+    #203c80 0%,
+    #172d62 100%
+  );
+
+  border: 1px solid #334d85;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* MÁRGENES EN MÓVILES */
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 20px);
+    padding: 18px 14px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+  }
+}
+
+
+
+
+/* REDONDEADO GENERAL DE ELEMENTOS */
+.card,
+.modelo-card,
+.radar-gif img,
+.windy-container,
+.webcam-container {
+  border-radius: 16px;
+}
+
+/* Separación entre tarjetas */
+.grid {
+  gap: 20px;
+}
+
+/* Separación de los títulos */
+.section-title {
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+
+/* Imágenes y mapas */
+.radar-gif img {
+  overflow: hidden;
+}
+
+.windy-container,
+.webcam-container {
+  overflow: hidden;
+}
+
+
+
+
+/* BANNER PRINCIPAL METEOEXPLORA */
+
+.hero-banner {
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 60px 25px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #334155;
+
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 15, 30, 0.88) 0%,
+      rgba(8, 15, 30, 0.62) 55%,
+      rgba(8, 15, 30, 0.25) 100%
+    ),
+    url("imagen1.jpg");
+
+  background-size: cover;
+  background-position: center 48%;
+  background-repeat: no-repeat;
+  background-position: center 48%;
+  background-position: center 30%;
+  border-bottom: 1px solid #334155;
+}
+
+.hero-banner-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-banner .hero-eyebrow {
+  display: inline-block;
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.hero-banner h1 {
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  max-width: 750px;
+}
+
+.hero-banner p {
+  color: #e2e8f0;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.hero-banner .hero-location {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: 20px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  color: #bae6fd;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .hero-banner {
+    min-height: 250px;
+    padding: 45px 20px;
+    background-position: center;
+  }
+
+  .hero-banner h1 {
+    font-size: 29px;
+  }
+
+  .hero-banner p {
+    font-size: 14px;
+  }
+}
+
 
     /* Cuadrícula de tarjetas de datos */
     .grid {
@@ -91,9 +230,11 @@
     .card-value { font-size: 2.4rem; font-weight: 700; margin: 8px 0; color: var(--text); }
     .card-sub { font-size: 0.85rem; color: var(--muted); }
 
+
     /* Secciones anchas */
     .section-title { font-size: 1.3rem; margin: 30px 0 15px; border-left: 4px solid var(--accent); padding-left: 12px; }
     iframe { width: 100%; border: none; border-radius: 12px; }
+
 
     /* Enlaces rápidos estilo MeteoTetuán */
     .links-grid {
@@ -128,29 +269,102 @@
 </head>
 <body>
 
-  <nav>
+<nav>
     <div class="logo">MeteoExplora • Collado Villalba</div>
     <div class="links">
-      <a href="#actual">Tiempo Actual</a>
-      <a href="#radar">Radar y Mapas</a>
-      <a href="#prevision">Previsión</a>
-      <a href="#estacion">Estación</a>
+      <a href="#radar-meteociel">Radar Meteociel</a>
+      <a href="#radar-windy">Radar Windy</a>
+      <a href="#modelos-meteorologicos">Modelos meteorológicos</a>
+      <a href="#webcam">Webcam</a>
+
     </div>
   </nav>
+</nav>
 
-  <div class="container">
-    <div class="hero">
-      <h1>Observatorio Meteorológico Collado Villalba</h1>
-      <p>Parque de La Coruña (Madrid) • Altitud: 900 m • 40° 37' 12" N / 4° 00' 36" O</p>
-      <span class="badge" id="estado">● Conectando con Ecowitt WN32...</span>
-    </div>
 
-    <h2 class="section-title" id="actual">Condiciones actuales</h2>
+
+
+<!-- CONTENEDOR GENERAL -->
+<div class="container">
+
+
+<!-- BANNER PRINCIPAL -->
+<header class="hero-banner">
+
+  <div class="hero-banner-content">
+    <h1>
+      Observatorio Meteorológico
+      <br>
+      Collado Villalba
+    </h1>
+    <p>
+      Parque de La Coruña - Collado Villalba (Madrid) · Altitud: 900 m
+    </p>
+    <span class="hero-location">
+      📍 40° 37' 12" N · 4° 00' 36" O
+    </span>
+  </div>
+</header>
+
+
+
+
+    
+<!-- INDICADOR DE ACTUALIZACIÓN -->
+<style>
+  .indicador-estado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #22c55e;
+    margin: 10px auto;
+  }
+
+  .punto-verde {
+    width: 10px;
+    height: 10px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+  }
+
+  .punto-verde::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #22c55e;
+    border-radius: 50%;
+    animation: pulso 1.5s infinite ease-out;
+  }
+
+  @keyframes pulso {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+</style>
+
+
+
+<h2 class="section-title" id="actual">
+  <span class="punto-verde"></span>&nbsp;
+Condiciones actuales
+</h2>
+
     <div class="grid">
       <div class="card">
         <div class="card-title">Temperatura Exterior</div>
         <div class="card-value" id="temp" style="color: var(--warm);">-- °C</div>
-        <div class="card-sub">Sensor Ecowitt WN32</div>
+        <div class="card-sub">Sensor exterior Ecowitt WN32</div>
       </div>
       <div class="card">
         <div class="card-title">Humedad Relativa</div>
@@ -169,75 +383,411 @@
       </div>
     </div>
 
+
+
+
+
+
+
+
+<!-- RADAR METEOCIEL - GIF ANIMADO -->
+ <h2 class="section-title" id="radar-meteociel">
+  🌧️ Radar Meteociel · España
+</h2>
+
+<style>
+  .radar-gif {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+
+  .radar-gif img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  }
+</style>
+
+<div class="radar-gif">
+  <img
+    src="https://www.meteociel.es/cartes_obs/radar/lastsnowradar_sp.gif"
+    alt="Radar animado de precipitaciones de España - Meteociel"
+    loading="eager">
+</div>
+
+
+
+
   
-   /* RADAR METEOCIEL */
-  <h2 class="section-title" id="radar">Radar de precipitación (Meteociel • España)</h2>
-    <div class="card" style="text-align: center;">
-      <a href="https://www.meteociel.fr/observations-meteo/radar2.php?region=sp" target="_blank" title="Abrir radar interactivo en Meteociel">
-        <img src="https://meteociel.fr" alt="Radar de precipitación España Meteociel" style="max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #334155;">
-      </a>
-      <p class="card-sub" style="margin-top: 10px;">
-        Animación radar en tiempo real • Pulsa sobre el mapa para abrir el visor con zoom en Meteociel
+
+<!-- MAPA METEOROLÓGICO WINDY -->
+
+<h2 class="section-title" id="radar-windy">
+  🌍 Mapa meteorológico Windy
+</h2>
+
+<style>
+  .windy-container {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    background: #101827;
+  }
+
+  .windy-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 768px) {
+    .windy-container {
+      height: 480px;
+      border-radius: 10px;
+    }
+  }
+</style>
+
+<div class="windy-container">
+  <iframe
+    src="https://embed.windy.com/embed.html?type=map&location=coordinates&lat=40.64&lon=-4.00&zoom=8&overlay=temp&product=ecmwf&level=surface&metricRain=default&metricTemp=default&metricWind=default"
+    title="Mapa de temperaturas Windy - Sierra de Guadarrama"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+
+
+
+
+
+<!-- MODELOS METEOROLÓGICOS -->
+<section class="modelos-section" id="modelos-meteorologicos">
+
+  <h2 class="section-title">
+    📊 Modelos meteorológicos
+  </h2>
+
+  <a
+    class="modelo-card"
+    href="https://www.meteopt.com/modelos/gfs"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div class="modelo-icon">❄️</div>
+
+    <div class="modelo-info">
+      <span class="modelo-tag">PREDICCIÓN GLOBAL</span>
+      <h3>Modelo Americano (GFS)</h3>
+      <p>
+        Consulta la previsión de cota de nieve del modelo americano GFS.
       </p>
     </div>
+    <div class="modelo-arrow">↗</div>
+  </a>
 
-          <h2 class="section-title" id="radar">Radar de precipitación (Meteociel)</h2>
-    <div class="card" id="radar-container" style="overflow: hidden; position: relative; padding: 0; width: 100%; background: #ffffff;">
-      <iframe id="radar-frame" src="https://meteociel.fr" style="position: absolute; top: -215px; left: -215px; width: 920px; height: 920px; border: none; transform-origin: 215px 215px;" scrolling="no"></iframe>
-    </div>
+</section>
 
-    <script>
-      function ajustarRadar() {
-        const contenedor = document.getElementById("radar-container");
-        const iframe = document.getElementById("radar-frame");
-        if (!contenedor || !iframe) return;
+<style>
+  .modelos-section {
+    width: 100%;
+    margin: 24px auto;
+  }
 
-        // Medidas exactas solo de la zona del mapa y controles superiores
-        const anchoRadar = 685;
-        const altoRadar = 670;
+  .modelo-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(120deg, #142e50, #17243d);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: transform .25s ease,
+                border-color .25s ease,
+                box-shadow .25s ease;
+  }
 
-        // Ajusta el mapa para que ocupe el 100% del ancho de la tarjeta sin franjas vacías
-        const anchoDisponible = contenedor.clientWidth;
-        const escala = anchoDisponible / anchoRadar;
+  .modelo-card:hover {
+    transform: translateY(-3px);
+    border-color: #38bdf8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  }
 
-        iframe.style.transform = `scale(${escala})`;
-        contenedor.style.height = (altoRadar * escala) + "px";
-      }
-
-      window.addEventListener("load", ajustarRadar);
-      window.addEventListener("resize", ajustarRadar);
-    </script>
-
-
-
-
-
-    <h2 class="section-title" id="prevision">Previsión AEMET • Collado Villalba</h2>
-    <div class="card" style="overflow-x: auto; margin-bottom: 20px; background: #ffffff;">
-      <iframe name="iframe_aemet_id33044" width="100%" height="230" style="min-width: 550px;" tabindex="0" id="iframe_aemet_id33044" src="https://www.aemet.es/es/eltiempo/prediccion/municipios/mostrarwidget/collado-villalba-id28047?w=g4p011100001ohmffffffx4f86d9t95b6e9r1s8n2" frameborder="0" scrolling="no"></iframe>
-    </div>
-
-
-    <div class="links-grid">
-      <a class="btn-link" href="https://aemet.es" target="_blank">Radar AEMET Madrid</a>
-    </div>
-
-
-<h2 class="section-title" id="prevision">Modelos meteorológicos</h2>
-    <div class="links-grid">
-      <a class="btn-link" href="https://www.meteopt.com/modelos/gfs" target="_blank">Modelos con cota de nieve</a>
-    </div>
+  .modelo-icon {
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(56, 189, 248, .13);
+    border: 1px solid rgba(56, 189, 248, .2);
+    border-radius: 13px;
+    font-size: 27px;
+  }
+.modelo-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
 
 
-    
+
+
+  .modelo-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .modelo-tag {
+    color: #38bdf8;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .modelo-info h3 {
+    margin: 5px 0;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .modelo-info p {
+    margin: 0;
+    color: #aabbd0;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .modelo-arrow {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, .15);
+    color: #38bdf8;
+    font-size: 21px;
+    transition: transform .25s ease;
+  }
+
+  .modelo-card:hover .modelo-arrow {
+    transform: translate(3px, -3px);
+  }
+
+  @media (max-width: 500px) {
+    .modelo-card {
+      gap: 12px;
+      padding: 15px;
+    }
+
+    .modelo-icon {
+      width: 45px;
+      height: 45px;
+      font-size: 23px;
+    }
+
+    .modelo-info h3 {
+      font-size: 15px;
+    }
+
+    .modelo-info p {
+      font-size: 12px;
+    }
+  }
+</style>
+
+
+
+<!-- ACCESO HARMONIE-AROME -->
+<a
+  class="modelo-card"
+  href="https://harmoniearome.es/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="modelo-icon">
+    <img src="imagen_harmonie.jpg" alt="HARMONIE-AROME">
+  </div>
+
+  <div class="modelo-info">
+    <span class="modelo-tag">PREDICCIÓN DE ALTA RESOLUCIÓN</span>
+    <h3>Modelo HARMONIE-AROME</h3>
+    <p>
+      Consulta mapas meteorológicos de alta resolución
+      y evolución de las precipitaciones.
+    </p>
+  </div>
+
+  <div class="modelo-arrow">↗</div>
+</a>
+
+
+
+
+
+
+
+<!-- ACCESO AEMET -->
+<a
+  class="modelo-card"
+  href="https://www.aemet.es/es/eltiempo/prediccion/municipios/collado-villalba-id28047"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="modelo-icon">
+     <img src="imagen_aemet.jpg" alt="Logotipo AEMET">
+  </div>
+
+  <div class="modelo-info">
+    <span class="modelo-tag">PREDICCIÓN OFICIAL</span>
+    <h3>Tiempo AEMET · Collado Villalba</h3>
+    <p>
+      Consulta la previsión oficial, temperaturas,
+      precipitaciones y evolución del tiempo.
+    </p>
+  </div>
+
+  <div class="modelo-arrow">↗</div>
+</a>
+
+
+
+
+<!-- WEBCAM DGT - A6 KM 39,1 -->
+
+<h2 class="section-title" id="webcam">
+  🚗 Webcam DGT · A-6 Collado Villalba
+</h2>
+
+<style>
+  .webcam-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid #334155;
+    background: #101827;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+  }
+
+  .webcam-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 0;
+  }
+
+  .webcam-info {
+    padding: 12px 15px;
+    color: #94a3b8;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .webcam-info strong {
+    color: #38bdf8;
+  }
+</style>
+
+<div class="webcam-container">
+
+  <a
+    href="https://etraffic.dgt.es/camarasEtraffic/898.jpg"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      id="camara-dgt-a6"
+      src="https://etraffic.dgt.es/camarasEtraffic/898.jpg"
+      alt="Cámara DGT A-6 kilómetro 39,1 Collado Villalba"
+      loading="eager"
+    >
+  </a>
+
+  <div class="webcam-info">
+    📍 <strong>A-6 · PK 39,1</strong> ·
+    Sentido creciente · Collado Villalba
+    <br>
+    Fuente: Dirección General de Tráfico (DGT)
+    <br>
+    <span id="hora-camara">
+      Actualizando imagen...
+    </span>
+  </div>
+
+</div>
+
+<script>
+(function () {
+
+  const imagen = document.getElementById("camara-dgt-a6");
+  const hora = document.getElementById("hora-camara");
+
+  const url =
+    "https://etraffic.dgt.es/camarasEtraffic/898.jpg";
+
+  function actualizarCamara() {
+
+    imagen.src = url + "?t=" + Date.now();
+
+    hora.textContent =
+      "Última solicitud: " +
+      new Date().toLocaleTimeString("es-ES");
+
+  }
+
+  // Actualizar la solicitud cada 60 segundos
+  actualizarCamara();
+
+  setInterval(actualizarCamara, 60000);
+
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <h2 class="section-title" id="estacion">Información del observatorio</h2>
     <div class="card">
-      <p>Estación meteorológica situada en el <strong>Parque de La Coruña</strong>, en el municipio de Collado Villalba (Madrid), a 900 metros de altitud. Equipada con sensor termo-higrómetro <strong>Ecowitt WN32</strong> con transmisión automática a la red Ecowitt.net.</p>
+      <p>Sensor termohigrómetro exterior <strong>Ecowitt WN32</strong> con garita meteorológica, situado en el Parque de La Coruña, en el municipio de Collado Villalba (Madrid), a 900 metros de altitud.</p>
     </div>
 
     <footer>
-      © 2026 MeteoExplora • Collado Villalba (Madrid) • Datos actualizados cada 5 minutos
+      © 2026 MeteoExplora • Collado Villalba (Madrid) • Datos actualizados cada 10 minutos
     </footer>
+
+    
   </div>
 
   <script>
